@@ -1,28 +1,35 @@
 $(document).ready(function () {
-//Hides everything, except for start button
-    $(" div.story, .hideOnLoad, .restartButton").hide();
+    //Hides all elements at start of game
+    $("p,img, button.restart").hide();
 
-    //Shows first part of the story, after start button is clicked
+    //shows first Q after button is clicked
     $(".getStarted").on('click', () => {
-        $("div.story, .hideOnLoad").show();
         $(".getStarted").hide();
+        $(".intro").show();
+        $(".one").show();
+        $(".opendoor, .nothome, .daftcunt").show();
+        console.log("hij doet het")
     });
 
-
-    $("#option1").click(function () {
-        $("p").append("<p>I am the hamster killer</p>")
-        $("#firstQuestion, #option1, #option2, #option3").hide()
+//correct answer Q one
+    $(".opendoor").on('click', () => {
+        $(".opendoor, .nothome, .daftcunt").hide();
+        $(".two").show();
+        $(".givehamster, .ransome, .alreadydead").show();
     });
 
-    $("#option2, #option3").click(function () {
-        $("p").append("<p>GET OUT OF MY STUDIO</p>")
-        $("#firstQuestion, #option1, #option2, #option3").hide()
-        $("#restart").show()
+    // wrong answers question one
+    $(".nothome, .daftcunt").on('click', () => {
+        wrongAnswer()
     });
 
-    $(".restartButton").on('click', () =>{
-            $("#firstQuestion, .hideOnLoad").show();
-        $("p").hide();
-        });
-
+//this function restarts the game
+    function wrongAnswer() {
+        $(".intro, .question, .opendoor, .nothome, .daftcunt").hide();
+        $('button.restart, img').show();
+        $('button.restart').on('click', () => {
+            $("p, img, button.restart").hide();
+            $('.getStarted').show();
+        })
+    }
 });
