@@ -11,12 +11,14 @@ $(document).ready(function () {
         console.log("hij doet het")
     });
 
-//correct answer Q one
+//correct answer Q1
     $(".opendoor").on('click', () => {
         $(".opendoor, .nothome, .daftcunt").hide();
         $(".two").show();
         $(".givehamster, .ransome, .alreadydead").show();
     });
+
+    //correct answer Q2
 
     // wrong answers question one
     $(".nothome, .daftcunt").on('click', () => {
