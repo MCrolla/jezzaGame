@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    var score = -1;
+    var score = 0;
     //Hides all elements at start of game
     $("p,img, button.restart").hide();
     console.log(score);
@@ -10,7 +10,8 @@ $(document).ready(function () {
         $(".intro").show();
         $(".one").show();
         $(".opendoor, .nothome, .daftcunt").show();
-        updateScoreboard();
+        $("#scoreboard").html(score);
+        $("#scoreboard").show();
             });
 
 //correct answer Q1
@@ -63,6 +64,7 @@ $(document).ready(function () {
         $('button.restart').on('click', () => {
             $("p, img, button.restart").hide();
             $('.getStarted').show();
+            score = 0;
         })
     }
 
