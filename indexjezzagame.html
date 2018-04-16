@@ -12,12 +12,20 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
 
     <title>The Jeremy Kyle Game /Dit een test van vera's branche</title>
-</head>nnnn
-<body>
+</head>
+
+<div class="imgRyan">
+    <img src="./img/ryan.png" height="200">
+</div>
+
+<div class="imgJemma">
+    <img src="./img/jemma.png" height="200">
+</div>
 
 <div id="container">
 
     <div id="header">
+        <div id="imgDisplay"></div>
         <img src="./img/logo2.png" id="img-header" height="250">
         <div id="headerText">
             <h1>A game based on a true story<br>
@@ -29,15 +37,18 @@
 
     <div class="wobblyHead"></div>
 
-<p class="intro">Ryan, a 22 year old boy from Stevenage, Hertfordshire, recently broke up with his love Jemma Tracey.<br>
-    He’s not taking the breakdown of their six-year relationship not so well.<br>
-    Jemma is coming over to his home, collecting her belongings.<br>
+    <div id="logoHeaderSmall">
+        <img src="./img/logo2.png" id="imgHeaderSmall" height="130">
+    </div>
+
+<p class="intro">Ryan, a 22 year old boy from Stevenage, Hertfordshire, recently broke up with his love Jemma Tracey.
+    He’s not taking the breakdown of their six-year relationship so well. Jemma is coming over to his home, collecting her belongings.<br>
 </p>
 <p class="question one">The doorbell rings. It's Jenna, the horrible bitch. What do you do?</p>
 <div class="firstQ ans">
-    <p class="opendoor">You open the door and let her in</p>
-    <p class="nothome wrong">You pretend you're not at home</p>
-    <p class="daftcunt wrong">You open the door and yell at her that she is a daft cunt</p>
+    <p class="opendoor">> You open the door and let her in</p>
+    <p class="nothome wrong">> You pretend you're not at home</p>
+    <p class="daftcunt wrong">> You open the door and yell at her that she is a daft cunt</p>
 </div>
 
 <p class="question two"> As soon as you let Jenna in she starts talking. <br>
@@ -67,6 +78,14 @@
 <button class="restart">Try again</button>
 
 </div>
+
+<script>
+    $('#clicker').click(function(){
+        $target = $('#target');
+        $target.removeClass('animate');
+        setTimeout("$target.addClass('animate');",100)
+    });
+</script>
 
 </body>
 </html>

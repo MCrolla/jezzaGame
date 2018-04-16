@@ -5,14 +5,27 @@ h1 {
     color: black;
 }
 
+p {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 15px;
+    font-weight: lighter;
+    color: black;
+}
+
 body, html {
     background-color: #406ffb;
+}
+
+#jezzatest{
+    background-repeat: no-repeat; !important;
 }
 
 #container {
     margin: auto;
     width: 60%;
 }
+
+/* --------------------------- HEADER INTRO --------------------------- */
 
 #header {
     margin: auto;
@@ -28,6 +41,21 @@ body, html {
     display: block; /*for the img inside your div */
     margin: 0 auto;
 }
+
+/* --------------------------- LOGO HEADER SMALL --------------------------- */
+
+logoHeaderSmall {
+    margin: auto;
+    width: 100%;
+    text-align: center;
+}
+
+#imgHeaderSmall {
+    display: block; /*for the img inside your div */
+    margin: 0 auto;
+}
+
+/* --------------------------- BUTTON START GAME --------------------------- */
 
 #buttonStartGame {
     margin: auto;
@@ -55,16 +83,20 @@ body, html {
     transform: translateY(4px);
 }
 
+/* --------------------------- WOBBLY HEAD --------------------------- */
+
 .wobblyHead {
     position: absolute;
-    width: 55vmin;
-    height: 55vmin;
-    left: 50%;
-    top: 50%;
+    width: 58vmin;
+    height: 58vmin;
+    right: 1%;
+    top: 60%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     background-size: 93% auto;
 }
+
+
 .wobblyHead::after {
     content: '';
     position: absolute;
@@ -73,7 +105,7 @@ body, html {
     right: 5%;
     top: 6.6%;
     background-size: contain;
-    background-image: url("./img/jeremykylehead.png");
+    background-image: url("./img/jeremykylehead.gif");
     background-repeat: no-repeat;
     -webkit-transform-origin: 50% 80%;
     transform-origin: 50% 80%;
@@ -82,7 +114,7 @@ body, html {
 }
 
 @-webkit-keyframes wobble {
-    7% {
+    1% {
         -webkit-transform: rotateZ(0deg) translateX(0);
         transform: rotateZ(0deg) translateX(0);
     }
@@ -102,4 +134,29 @@ body, html {
         -webkit-transform: rotateZ(0deg) translateX(0);
         transform: rotateZ(0deg) translateX(0);
     }
+}
+
+/* --------------------------- INTRO --------------------------- */
+
+.intro {
+    margin-top: 60px;
+}
+
+.opendoor:hover, .nothome:hover, .daftcunt:hover {
+    padding-left: 15px;
+}
+
+.imgRyan, .imgJemma {
+    display: block; /*for the img inside your div */
+    margin: 0 auto;
+    position: absolute;
+    top: 30%;
+}
+
+.imgRyan {
+    left: 2%;
+}
+
+.imgJemma {
+    right: 2%;
 }
