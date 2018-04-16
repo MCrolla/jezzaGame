@@ -10,8 +10,8 @@ $(document).ready(function () {
         $(".intro").show();
         $(".one").show();
         $(".opendoor, .nothome, .daftcunt").show();
-        $("#scoreboard").html(score);
-        $("#scoreboard").show();
+        $("#score").html(score);
+        $("#score").show();
             });
 
 //correct answer Q1
@@ -19,27 +19,24 @@ $(document).ready(function () {
         $(".answer").hide();
         $(".two").show();
         $(".givehamster, .ransome, .alreadydead").show();
-        updateScoreboard();
-        console.log(score);
-    });
+        updateScore();
+        });
 
     //correct answer Q2
     $(".ransome").on('click', () => {
         $(".answer").hide();
         $(".three").show();
         $(".shove, .giveup, .pickup ").show();
-        updateScoreboard();
-        console.log(score);
-    });
+        updateScore();
+        });
 
     //correct answer Q3
     $(".pickup").on('click', () => {
         $(".answer").hide();
         $(".four").show();
         $(".cry, .beg, .hurl ").show();
-        updateScoreboard()
-        console.log(score);
-    });
+        updateScore()
+        });
 
     // wrong answers question one
     $(".nothome, .daftcunt").on('click', () => {
@@ -68,9 +65,26 @@ $(document).ready(function () {
         })
     }
 
-    function updateScoreboard(){
+    function updateScore(){
         score++;
-        $("#scoreboard").html(score);
-        $("#scoreboard").show();
+        $("#score").html(score);
+        $("#score").show();
     }
-});
+
+    $('#postScore').on('click', ()=> {
+        const data ={ name: $('#name').val(),
+            score: $('#score').text(),
+        };
+        $.ajax({
+            url:'http://localhost:3000/newScores',
+            type:"POST",
+            data: JSON.stringify(data),
+            contentType:"application/json; charset=utf-8",
+            dataType:"json",
+            success: function(){
+            console.log('gelukt')
+            }
+
+        })
+        })
+    });
