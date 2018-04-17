@@ -1,0 +1,49 @@
+var express = require('express');
+var bodyParser = require('body-parser');
+var app = express();
+app.use(bodyParser.json());
+
+var mysql = require('mysql');
+function getConnection() {
+    var connection = mysql.createConnection({
+        host: 'localhost',
+        user: '****',
+        password: '*****',
+        database: '*****'
+    });
+    return connection;
+}
+
+app.listen(3000, function () {
+    console.log('jezzagame on port 3000');
+});
+
+app.use(express.static('public'));
+
+
+app.post('/newScores', function (req, res) {
+    var connection = getConnection();
+    connection.connect();
+    var newScore = {id: 0, name: req.body.name, score: req.body.score};
+    var query = connection.query('INSERT INTO jezzagame SET ?', newScore, function (err, result) {
+        console.log("added " +  newScore);
+        res.status(200).end();
+    });
+    connection.end();
+});
+
+app.get('/scoreboard', function(req, res) {
+    var connection = getConnection();
+    connection.connect();
+    connection.query('SELECT name, score from jezzagame order by score desc limit 3', function(err, rows, fields) {
+        if (!err) {
+            // console.log('gelukt');
+            res.send(JSON.stringify(rows));
+        }
+        else {
+            console.log('Error while performing Query.');
+        }
+    });
+    connection.end();
+});
+
