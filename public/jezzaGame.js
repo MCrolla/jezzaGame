@@ -2,7 +2,7 @@ $(document).ready(function () {
     var score = 0;
     //Hides all elements at start of game
     $("p,img, button.restart, #postScore, #name").hide();
-    console.log(score);
+
 
     //shows first Q after button is clicked
     $(".getStarted").on('click', () => {
@@ -38,18 +38,8 @@ $(document).ready(function () {
         updateScore()
     });
 
-    // wrong answers question one
-    $(".nothome, .daftcunt").on('click', () => {
-        wrongAnswer()
-    });
-
-    //wrong answers Q2
-    $(".givehamster, .alreadydead").on('click', () => {
-        wrongAnswer()
-    });
-
-    //wrong answer Q3
-    $(".shove, .giveup").on('click', () => {
+    // wrong answers
+    $("p.wrong").on('click', () => {
         wrongAnswer()
     });
 
@@ -65,15 +55,9 @@ $(document).ready(function () {
         })
     }
 
-    function updateScore() {
-        score++;
-        $("#score").html(score);
-        $("#score").show();
-    }
 // Posting scores to database
-
     $('#postScore').on('click', () => {
-            const data = {
+        const data = {
             name: $('#name').val(),
             score: $('#score').text(),
         };
@@ -98,24 +82,38 @@ $(document).ready(function () {
                 }
 
             })
-        }});
-
-    $('#postScore').click(function() {
-        var self = $(this);
-            if (!self.data('add')) {
-                self.data('add', true);
-                self.text('Saved!');
-                setTimeout(function() {
-                    self.text('Save').data('add', false);
-                }, 1000);
         }
     });
 
-    $.get('http://localhost:3000/scoreboard', function(result){
-            var arrayName = JSON.parse(result);
-            console.log(arrayName);
-                // $('#scoreboarName').html(JSON.parse(result)[0].name);
-                // $('#scoreboardScore').html(JSON.parse(result)[0].score);
+    $('#postScore').click(function () {
+        var self = $(this);
+        if (!self.data('add')) {
+            self.data('add', true);
+            self.text('Saved!');
+            setTimeout(function () {
+                self.text('Save').data('add', false);
+            }, 1000);
+        }
+    });
+
+    $('.restart').click(function () {
+        location.reload(true);
+    });
+
+    // keeps the score
+    function updateScore() {
+        score++;
+        $("#score").html(score);
+        $("#score").show();
+    }
+
+    $.get('http://localhost:3000/scoreboard', function (result) {
+        $('#firstPlaceName.firstplace').html(JSON.parse(result)[0].name);
+        $('#secondPlaceName.secondplace').html(JSON.parse(result)[1].name);
+        $('#thirdPlaceName.thirdplace').html(JSON.parse(result)[2].name);
+        $('#firstPlaceScore.firstplace').html(JSON.parse(result)[0].score);
+        $('#secondPlaceScore.secondplace').html(JSON.parse(result)[1].score);
+        $('#thirdPlaceScore.thirdplace').html(JSON.parse(result)[2].score);
     });
 
 });
