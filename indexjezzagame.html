@@ -5,6 +5,9 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="jezzaGame.js"></script>
+    <script src="animaties.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.9.3/TweenMax.min.js"></script>
 
     <link rel="stylesheet" type="text/css" href="jezzaGame.css">
 
@@ -14,12 +17,13 @@
     <title>The Jeremy Kyle Game /Dit een test van vera's branche</title>
 </head>
 
+<div id="walkingHamster"></div>
+
 <div class="imgRyan">
-    <img src="./img/ryan.png" height="200">
+    <img src="./img/ryan.png" height="170">
 </div>
 
-<div class="imgJemma">
-    <img src="./img/jemma.png" height="200">
+<div id="imgJemma">
 </div>
 
 <div id="container">
@@ -37,6 +41,8 @@
 
     <div class="wobblyHead"></div>
 
+    <img id="dieStupidCunt" style="display:none;" />
+
     <div id="logoHeaderSmall">
         <img src="./img/logo2.png" id="imgHeaderSmall" height="130">
     </div>
@@ -46,20 +52,20 @@
 </p>
 <p class="question one">The doorbell rings. It's Jenna, the horrible bitch. What do you do?</p>
 <div class="firstQ ans">
-    <p class="opendoor">> You open the door and let her in</p>
+    <p class="opendoor" onclick="picture()"><button id="explode">> You open the door and let her in</button></p>
     <p class="nothome wrong">> You pretend you're not at home</p>
     <p class="daftcunt wrong">> You open the door and yell at her that she is a daft cunt</p>
 </div>
 
-<p class="question two"> As soon as you let Jenna in she starts talking. <br>
-    You can't listen to her, because her disgusting freckles are distracting you. <br>
-    She is talking about her hamsters, which are still at your place. <br>
-    She wants them back, are you going to give them to her?<br>
+<p class="question two"> As soon as you let Jenna in she starts talking.
+    You can't listen to her, because her disgusting freckles are distracting you.
+    She is talking about her hamsters, which are still at your place.
+    She wants them back, are you going to give them to her?
 </p>
 <div class="secondQ ans">
-    <p class="givehamster">Ofcourse, those little creatures have done nothing wrong</p>
-    <p class="ransome">Hell no, not unless that cunt pays a ransome for them.</p>
-    <p class="alreadydead">They're already dead</p></div>
+    <p class="givehamster">> Ofcourse, those little creatures have done nothing wrong</p>
+    <p class="ransome">> Hell no, not unless that cunt pays a ransome for them.</p>
+    <p class="alreadydead">> They're already dead</p></div>
 
 <p class="question three"> Jenna starts screaming, like a fishwife, and refuses to pay<br>
     You can feel the anger rising in your throat. Once more, you ask her to pay up!<br>
@@ -78,14 +84,6 @@
 <button class="restart">Try again</button>
 
 </div>
-
-<script>
-    $('#clicker').click(function(){
-        $target = $('#target');
-        $target.removeClass('animate');
-        setTimeout("$target.addClass('animate');",100)
-    });
-</script>
 
 </body>
 </html>

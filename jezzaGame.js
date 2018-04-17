@@ -1,7 +1,7 @@
 $(document).ready(function () {
     var score = -1;
     //Hides all elements at start of game
-    $("p, button.restart, #logoHeaderSmall, .imgRyan, .imgJemma").hide();
+    $("p, button.restart, #logoHeaderSmall, .imgRyan, #imgJemma").hide();
     console.log(score);
 
     //shows first Q after button is clicked
@@ -12,7 +12,7 @@ $(document).ready(function () {
         $("#logoHeaderSmall").show();
         $(".intro").show();
         $(".one").show();
-        $(".imgRyan, .imgJemma").show();
+        $(".imgRyan, #imgJemma").show();
         $(".opendoor, .nothome, .daftcunt").show();
 
         updateScoreboard();
@@ -67,7 +67,7 @@ $(document).ready(function () {
         $('button.restart').show();
         $(".opendoor, .nothome, .daftcunt").hide();
         $('button.restart').on('click', () => {
-            $("p, button.restart, #logoHeaderSmall, .imgRyan, .imgJemma").hide();
+            $("p, button.restart, #logoHeaderSmall, .imgRyan, #imgJemma").hide();
             $(".getStarted").show();
             $(".wobblyHead").show();
             $("#header").show();

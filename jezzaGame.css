@@ -16,6 +16,16 @@ body, html {
     background-color: #406ffb;
 }
 
+button {
+    border: none;
+    padding: 0;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 15px;
+    font-weight: lighter;
+    color: black;
+    background-color: #406ffb;
+}
+
 #jezzatest{
     background-repeat: no-repeat; !important;
 }
@@ -142,21 +152,68 @@ logoHeaderSmall {
     margin-top: 60px;
 }
 
-.opendoor:hover, .nothome:hover, .daftcunt:hover {
+.opendoor:hover, .nothome:hover, .daftcunt:hover, .givehamster:hover, .ransome:hover, .alreadydead:hover {
     padding-left: 15px;
 }
 
-.imgRyan, .imgJemma {
+.imgRyan, #imgJemma {
     display: block; /*for the img inside your div */
     margin: 0 auto;
     position: absolute;
-    top: 30%;
+
 }
 
 .imgRyan {
     left: 2%;
+    top: 30%;
 }
 
-.imgJemma {
-    right: 2%;
+#imgJemma {
+right: 20%;
+    top: 20%;
+}
+
+#dieStupidCunt {
+    position: absolute;
+    top: 16%;
+    left: 135px;
+}
+
+
+/* --------------------------- WALKING HAMSTER --------------------------- */
+
+@keyframes walkinghamster {
+    0% {
+        left: 10vw;
+        transform: scale(1, 1);
+    }
+
+    49.8% {
+        transform: scale(1, 1);
+    }
+
+    50% {
+        left: 90vw;
+        transform: scale(-1, 1);
+    }
+
+    99.8% {
+        transform: scale(-1, 1);
+    }
+
+    100% {
+        left: 10vw;
+        transform: scale(1, 1);
+    }
+}
+
+#walkingHamster {
+    background-image: url('http://i795.photobucket.com/albums/yy232/PixKaruumi/Pixels/Pixels%2087/027.gif');
+    width: 53px;
+    height: 74px;
+    position: absolute;
+    bottom: 2%;
+    background-repeat: no-repeat;
+    z-index: 999;
+    animation: walkinghamster 45s linear 0s infinite;
 }
